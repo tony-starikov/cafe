@@ -21,12 +21,12 @@
                 </a>
             </div>
             <p class="lead">
-                        <span class="mr-1">
-                            <del><strong>200 UAH</strong></del>
-                        </span>
                 <span class="mr-1">
-                            <strong>100 UAH</strong>
-                        </span>
+                    <del><strong>200 UAH</strong></del>
+                </span>
+                <span class="mr-1">
+                    <strong>100 UAH</strong>
+                </span>
             </p>
             <p class="lead font-weight-bold">{{ $product }}</p>
             <p>

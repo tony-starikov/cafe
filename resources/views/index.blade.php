@@ -71,12 +71,9 @@
 <section class="text-center mt-3">
     <div class="container">
         <div class="row">
-            @include('card')
-            @include('card')
-            @include('card')
-            @include('card')
-            @include('card')
-            @include('card')
+            @foreach($products as $product)
+                @include('card', compact('product'))
+            @endforeach
         </div>
     </div>
 </section>

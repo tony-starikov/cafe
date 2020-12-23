@@ -15,7 +15,7 @@
         <div class="mask" style="background-color: rgba(0,0,0,0.31)">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-white">
-                    <h1 class="mb-3"><strong>{{ $category->name }}</strong></h1>
+                    <h1 class="mb-3"><strong>{{ $category->name }} {{ $category->products->count() }}</strong></h1>
                     <h4 class="mb-3"><strong>{{ $category->description }}</strong></h4>
                 </div>
             </div>
@@ -28,12 +28,9 @@
 <section class="text-center mt-3">
     <div class="container">
         <div class="row">
-            @include('card')
-            @include('card')
-            @include('card')
-            @include('card')
-            @include('card')
-            @include('card')
+            @foreach($category->products as $product)
+                @include('card', compact('product'))
+            @endforeach
         </div>
     </div>
 </section>

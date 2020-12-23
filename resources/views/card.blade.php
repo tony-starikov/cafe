@@ -2,7 +2,7 @@
     <div class="card h-100">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img
-                src="img/1.png"
+                src="/img/1.png"
                 class="img-fluid"
             />
             <a href="#!">
@@ -11,9 +11,10 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">
-                <a href="#" class="text-body">Чизкейк с клубникой <span class="badge bg-success">NEW</span></a>
+                <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="text-body">{{ $product->name }} <span class="badge bg-success">NEW</span></a>
             </h5>
-            <h6>45.00 UAH</h6>
+            <h6>{{ $product->price }} UAH</h6>
+            <h6>{{ $product->category->name }}</h6>
             <a href="{{ route('basket') }}" class="btn btn-primary">В корзину <span><i class="fas fa-shopping-cart"></i></span></a>
         </div>
     </div>
