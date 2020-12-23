@@ -57,8 +57,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">ДОСТАВКА</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ОПЛАТА И ВОЗВРАТ</a>
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdown"
+                            role="button"
+                            data-mdb-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            МЕНЮ
+                        </a>
+                        <!-- Dropdown menu -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @foreach($categories as $category)
+                                <li><a class="dropdown-item" href="/{{ $category->code }}">{{ $category->name }}</a></li>
+                            @endforeach
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">О НАС</a>
