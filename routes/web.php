@@ -11,8 +11,13 @@
 |
 */
 
-Route::get('/', 'MainController@index');
+Route::get('/', 'MainController@index')->name('index');
 
-Route::get('/drink/{product}/', 'MainController@product');
+Route::get('/basket', 'MainController@basket')->name('basket');
 
-Route::get('/{category}', 'MainController@category');
+Route::get('/order', 'MainController@order')->name('order');
+
+
+Route::get('/{category}/{product}', 'MainController@product')->name('product');
+
+Route::get('/{category}', 'MainController@category')->name('category');

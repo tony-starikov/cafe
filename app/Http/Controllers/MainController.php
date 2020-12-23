@@ -13,15 +13,30 @@ class MainController extends Controller
         return view('index', compact('categories'));
     }
 
+    public function basket()
+    {
+        $categories = Category::get();
+        return view('basket', compact('categories'));
+    }
+
+    public function order()
+    {
+        $categories = Category::get();
+        return view('order', compact('categories'));
+    }
+
     public function category($code)
     {
         $category = Category::where('code', $code)->first();
 
-        return view('category', compact('category'));
+        $categories = Category::get();
+
+        return view('category', compact('category', 'categories'));
     }
 
-    public function product($product)
+    public function product($category, $product)
     {
-        return view('product', ['product' => $product]);
+        $categories = Category::get();
+        return view('product', compact('categories', 'product', 'category'));
     }
 }
