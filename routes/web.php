@@ -13,10 +13,11 @@
 
 Route::get('/', 'MainController@index')->name('index');
 
-Route::get('/basket', 'MainController@basket')->name('basket');
+Route::get('/basket', 'BasketController@basket')->name('basket');
 
-Route::get('/order', 'MainController@order')->name('order');
+Route::post('/basket/add/{product_id}', 'BasketController@basketAdd')->name('basketAdd');
 
+Route::get('/order', 'BasketController@order')->name('order');
 
 Route::get('/{category}/{product}', 'MainController@product')->name('product');
 

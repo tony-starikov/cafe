@@ -15,18 +15,6 @@ class MainController extends Controller
         return view('index', compact('categories', 'products'));
     }
 
-    public function basket()
-    {
-        $categories = Category::get();
-        return view('basket', compact('categories'));
-    }
-
-    public function order()
-    {
-        $categories = Category::get();
-        return view('order', compact('categories'));
-    }
-
     public function category($code)
     {
         $categories = Category::get();

@@ -15,7 +15,12 @@
             </h5>
             <h6>{{ $product->price }} UAH</h6>
             <h6>{{ $product->category->name }}</h6>
-            <a href="{{ route('basket') }}" class="btn btn-primary">В корзину <span><i class="fas fa-shopping-cart"></i></span></a>
+            <form action="{{ route('basketAdd', $product->id) }}" method="POST">
+                <button type="submit" class="btn btn-primary">
+                    В корзину <span><i class="fas fa-shopping-cart"></i></span>
+                </button>
+                @csrf
+            </form>
         </div>
     </div>
 </div>
