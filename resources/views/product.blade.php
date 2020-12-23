@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Product')
+@section('title', $product->name)
 
 @section('content')
 <div class="row">
@@ -11,7 +11,7 @@
         <div class="p-4">
             <div class="mb-3">
                 <a href="#">
-                    <span class="badge bg-secondary mr-1">{{ $category }}</span>
+                    <span class="badge bg-secondary mr-1">{{ $category->name }}</span>
                 </a>
                 <a href="#">
                     <span class="badge bg-success mr-1">NEW</span>
@@ -21,16 +21,16 @@
                 </a>
             </div>
             <p class="lead">
+{{--                <span class="mr-1">--}}
+{{--                    <del><strong>200 UAH</strong></del>--}}
+{{--                </span>--}}
                 <span class="mr-1">
-                    <del><strong>200 UAH</strong></del>
-                </span>
-                <span class="mr-1">
-                    <strong>100 UAH</strong>
+                    <strong>{{ $product->price }} UAH</strong>
                 </span>
             </p>
-            <p class="lead font-weight-bold">{{ $product }}</p>
+            <p class="lead font-weight-bold">{{ $product->name }}</p>
             <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quisquam doloremque odio accusantium a laudantium veniam perferendis. Repudiandae debitis, iure doloremque cumque dolores nihil, expedita consequatur, natus rerum enim hic?
+                {{ $product->description }}
             </p>
             <p>
                 <button type="submit" class="btn btn-primary btn-md">
@@ -46,10 +46,10 @@
 <div class="row d-flex justify-content-center">
     <div class="col-md-6 text-center">
         <h4 class="my-3 h4">
-            ИФОРМАЦИЯ О КАТЕГОРИИ
+            {{ $category->name }}
         </h4>
         <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore nisi debitis ea accusamus aliquid minima praesentium ex iure quasi sunt eum dolores cumque, distinctio magnam repudiandae deserunt veritatis eveniet nostrum!
+            {{ $category->description }}
         </p>
     </div>
 </div>
