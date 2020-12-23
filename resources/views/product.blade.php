@@ -169,7 +169,7 @@
                             <strong>100 UAH</strong>
                         </span>
                     </p>
-                    <p class="lead font-weight-bold">НАЗВАНИЕ ТОВАРА</p>
+                    <p class="lead font-weight-bold">{{ $product }}</p>
                     <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente quisquam doloremque odio accusantium a laudantium veniam perferendis. Repudiandae debitis, iure doloremque cumque dolores nihil, expedita consequatur, natus rerum enim hic?
                     </p>
