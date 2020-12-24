@@ -41,7 +41,7 @@
 
             <tr>
                 <td colspan="3"><h5>Общая стоимость:</h5></td>
-                <td><h5>{{ $product->price }} UAH</h5></td>
+                <td><h5>{{ $order->getFullPrice() }} UAH</h5></td>
             </tr>
             </tbody>
         </table>
