@@ -34,7 +34,7 @@
                         </form>
                     </td>
                     <td><strong>{{ $product->price }} UAH</strong></td>
-                    <td><strong>{{ $product->price }} UAH</strong></td>
+                    <td><strong>{{ $product->getPriceForCount() }} UAH</strong></td>
                 </tr>
 
             @endforeach
