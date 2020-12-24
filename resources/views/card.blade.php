@@ -11,7 +11,9 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">
-                <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="text-body">{{ $product->name }} <span class="badge bg-success">NEW</span></a>
+                <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="text-body">{{ $product->name }}
+                    <span class="badge bg-success">NEW</span>
+                </a>
             </h5>
             <h6>{{ $product->price }} UAH</h6>
             <h6>{{ $product->category->name }}</h6>
