@@ -28,7 +28,7 @@
                             <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
                             @csrf
                         </form>
-                        <form action="" method="POST">
+                        <form action="{{ route('basketRemove', $product->id) }}" method="POST">
                             <button type="submit" class="btn btn-primary"><i class="fas fa-minus"></i></button>
                             @csrf
                         </form>

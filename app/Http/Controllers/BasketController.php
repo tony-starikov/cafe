@@ -45,8 +45,30 @@ class BasketController extends Controller
 
         $order->products()->attach($productId);
 
-//        dump($order->products);
+        return redirect()->route('basket');
+    }
 
-        return view('basket', compact('categories', 'order'));
+    public function basketRemove($productId)
+    {
+        $categories = Category::get();
+
+        $orderId = session('orderId');
+
+        if (is_null($orderId)) {
+            $order = Order::create()->id;
+            session(['orderId' => $order]);
+            return redirect()->route('index');
+        }
+
+        $order = Order::find($orderId);
+
+        if (is_null($order->products)) {
+            return redirect()->route('index');
+        }
+
+        $order->products()->detach($productId);
+
+
+        return redirect()->route('basket');
     }
 }
