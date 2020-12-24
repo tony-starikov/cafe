@@ -23,7 +23,7 @@
                         </a>
                     </td>
                     <td>
-                        <button class="btn btn-primary">10</button>
+                        <button class="btn btn-primary">{{ $product->pivot->count }}</button>
                         <form action="{{ route('basketAdd', $product->id) }}" method="POST">
                             <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
                             @csrf
