@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('content')
 <!-- Background image -->
@@ -72,7 +72,7 @@
     <div class="container">
         <div class="row">
             @foreach($products as $product)
-                @include('card', compact('product'))
+                @include('layouts.card', compact('product'))
             @endforeach
         </div>
     </div>
