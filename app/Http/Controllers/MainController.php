@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,18 @@ class MainController extends Controller
     {
         $products = Product::get();
         $categories = Category::get();
-        return view('index', compact('categories', 'products'));
+
+        $quantity = null;
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            $quantity = 0;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
+
+        return view('index', compact('categories', 'products', 'quantity'));
     }
 
     public function category($code)
@@ -21,9 +33,17 @@ class MainController extends Controller
 
         $category = $categories->where('code', $code)->first();
 
-//        $products = Product::where('category_id', $category->id)->get();
+        $quantity = null;
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            $quantity = 0;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
 
-        return view('category', compact('category', 'categories'));
+        return view('category', compact('category', 'categories', 'quantity'));
     }
 
     public function product($category, $product)
@@ -34,6 +54,16 @@ class MainController extends Controller
 
         $product = Product::where('code', $product)->first();
 
-        return view('product', compact('categories', 'product', 'category'));
+        $quantity = null;
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            $quantity = 0;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
+
+        return view('product', compact('categories', 'product', 'category', 'quantity'));
     }
 }

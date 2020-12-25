@@ -92,7 +92,7 @@
                     </li>
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="{{ route('basket') }}">
-                            <span class="badge badge-pill bg-danger">1</span>
+                            <span class="badge badge-pill bg-danger">{{ $quantity }}</span>
                             <span><i class="fas fa-shopping-cart"></i></span>
                             <span class="clearfix d-none d-sm-inline-block">КОРЗИНА</span>
                         </a>

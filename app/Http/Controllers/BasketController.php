@@ -15,17 +15,21 @@ class BasketController extends Controller
         $orderId = session('orderId');
         if (is_null($orderId)) {
             $order = Order::create()->id;
-//            dd($order);
             session(['orderId' => $order]);
+            return redirect()->route('index');
         } else {
             $order = Order::findOrFail($orderId);
+            $quantity = 0;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
         }
 
         if ($order->products->count() < 1) {
             return redirect()->route('index');
         }
 
-        return view('basket', compact('categories', 'order'));
+        return view('basket', compact('categories', 'order', 'quantity'));
     }
 
     public function order()
@@ -45,6 +49,11 @@ class BasketController extends Controller
             session(['orderId' => $order]);
         } else {
             $order = Order::find($orderId);
+        }
+
+        if (!is_object($order)){
+            $order = Order::create()->id;
+            session(['orderId' => $order]);
         }
 
         if ($order->products->contains($productId)) {

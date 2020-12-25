@@ -23,15 +23,17 @@
                         </a>
                     </td>
                     <td>
-                        <button class="btn btn-primary">{{ $product->pivot->count }}</button>
-                        <form action="{{ route('basketAdd', $product->id) }}" method="POST">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
-                            @csrf
-                        </form>
-                        <form action="{{ route('basketRemove', $product->id) }}" method="POST">
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-minus"></i></button>
-                            @csrf
-                        </form>
+                        <div class="d-inline-block">
+                            <button class="btn btn-primary btn-sm">{{ $product->pivot->count }}</button>
+                            <form action="{{ route('basketAdd', $product->id) }}" method="POST">
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
+                                @csrf
+                            </form>
+                            <form action="{{ route('basketRemove', $product->id) }}" method="POST">
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-minus"></i></button>
+                                @csrf
+                            </form>
+                        </div>
                     </td>
                     <td><strong>{{ $product->price }} UAH</strong></td>
                     <td><strong>{{ $product->getPriceForCount() }} UAH</strong></td>
