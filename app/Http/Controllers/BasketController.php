@@ -72,6 +72,12 @@ class BasketController extends Controller
 
         $orderResult = $order->saveOrder($request->name, $request->phone);
 
+        if ($orderResult) {
+            session()->flash('message', 'Заказ оформлен успешно!');
+        } else {
+            session()->flash('message', 'Ошибка при заказе!');
+        }
+
         return redirect()->route('index');
     }
 

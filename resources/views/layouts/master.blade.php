@@ -135,6 +135,10 @@
 
 <main class="mt-3">
     <div class="container text-body">
+        @if(session()->has('message'))
+            <p class="alert alert-success text-center">{{ session()->get('message') }}</p>
+        @endif
+
         @yield('content')
     </div>
 </main>
