@@ -32,10 +32,33 @@ class BasketController extends Controller
         return view('basket', compact('categories', 'order', 'quantity'));
     }
 
-    public function order()
+    public function orderCheck()
     {
         $categories = Category::get();
-        return view('order', compact('categories'));
+
+        $quantity = null;
+        $orderId = session('orderId');
+
+        if (!is_null($orderId)) {
+            $order = Order::find($orderId);
+            $quantity = 0;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
+
+        if (is_null($orderId)) {
+            return redirect()->route('index');
+        }
+
+        $order = Order::find($orderId);
+
+        return view('order', compact('categories', 'quantity', 'order'));
+    }
+
+    public function orderConfirm()
+    {
+        return redirect()->route('index');
     }
 
     public function basketAdd($productId)

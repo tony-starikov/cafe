@@ -49,7 +49,7 @@
         </table>
         <br>
         <div class="btn-group pull-right" role="group">
-            <a type="button" class="btn btn-success" href="{{ route('order') }}"><h5>ОФОРМИТЬ ЗАКАЗ</h5></a>
+            <a type="button" class="btn btn-success" href="{{ route('orderCheck') }}"><h5>ОФОРМИТЬ ЗАКАЗ</h5></a>
         </div>
         <br>
     </div>

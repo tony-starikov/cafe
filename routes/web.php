@@ -19,7 +19,9 @@ Route::post('/basket/add/{product_id}', 'BasketController@basketAdd')->name('bas
 
 Route::post('/basket/remove/{product_id}', 'BasketController@basketRemove')->name('basketRemove');
 
-Route::get('/order', 'BasketController@order')->name('order');
+Route::get('/order', 'BasketController@orderCheck')->name('orderCheck');
+
+Route::post('/order', 'BasketController@orderConfirm')->name('orderConfirm');
 
 Route::get('/{category}/{product}', 'MainController@product')->name('product');
 
