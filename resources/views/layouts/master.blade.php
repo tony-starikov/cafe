@@ -70,9 +70,9 @@
                         </a>
                         <!-- Dropdown menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            @foreach($categories as $category)
-                                <li><a class="dropdown-item" href="{{ route('category', $category->code) }}">{{ $category->name }}</a></li>
-                            @endforeach
+{{--                            @foreach($categories as $category)--}}
+{{--                                <li><a class="dropdown-item" href="{{ route('category', $category->code) }}">{{ $category->name }}</a></li>--}}
+{{--                            @endforeach--}}
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -92,7 +92,7 @@
                     </li>
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="{{ route('basket') }}">
-                            <span class="badge badge-pill bg-danger">{{ $quantity }}</span>
+{{--                            <span class="badge badge-pill bg-danger">{{ $quantity }}</span>--}}
                             <span><i class="fas fa-shopping-cart"></i></span>
                             <span class="clearfix d-none d-sm-inline-block">КОРЗИНА</span>
                         </a>
@@ -121,8 +121,12 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">ВОЙТИ</a></li>
-                            <li><a class="dropdown-item" href="#">РЕГИСТРАЦИЯ</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}">ВОЙТИ</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">РЕГИСТРАЦИЯ</a></li>
+                            @auth()
+                                <li><a class="dropdown-item" href="{{ route('getLogout') }}">ВЫЙТИ</a></li>
+                            @endauth
+
                         </ul>
                     </li>
                 </ul>

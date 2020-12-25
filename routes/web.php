@@ -11,6 +11,14 @@
 |
 */
 
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false,
+]);
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('getLogout');
+
 Route::get('/', 'MainController@index')->name('index');
 
 Route::get('/basket', 'BasketController@basket')->name('basket');

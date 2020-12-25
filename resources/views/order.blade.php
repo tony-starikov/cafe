@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Заказ')
+@section('title', 'Подтверждение заказа')
 
 @section('content')
     <div class="row justify-content-center">
@@ -16,7 +16,7 @@
                 Укажите имя и номер телефона, чтоб мы могли с вами связаться.
             </p>
 
-            <form method="POST" action="">
+            <form method="POST" action="{{ route('orderConfirm') }}">
                 <!-- Name input -->
                 <div class="form-outline mb-4">
                     <input type="text" name="name" id="name" class="form-control" />
