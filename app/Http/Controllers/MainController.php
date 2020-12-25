@@ -18,7 +18,7 @@ class MainController extends Controller
         $orderId = session('orderId');
         if (!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
-            $quantity = 0;
+            $quantity = null;
             foreach ($order->products as $product) {
                 $quantity += $product->pivot->count;
             }
@@ -37,7 +37,7 @@ class MainController extends Controller
         $orderId = session('orderId');
         if (!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
-            $quantity = 0;
+            $quantity = null;
             foreach ($order->products as $product) {
                 $quantity += $product->pivot->count;
             }
@@ -57,8 +57,8 @@ class MainController extends Controller
         $quantity = null;
         $orderId = session('orderId');
         if (!is_null($orderId)) {
-            $order = Order::findOrFail($orderId);
-            $quantity = 0;
+            $order = Order::find($orderId);
+            $quantity = null;
             foreach ($order->products as $product) {
                 $quantity += $product->pivot->count;
             }
