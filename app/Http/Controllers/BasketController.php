@@ -36,16 +36,7 @@ class BasketController extends Controller
     {
         $categories = Category::get();
 
-        $quantity = null;
         $orderId = session('orderId');
-
-        if (!is_null($orderId)) {
-            $order = Order::find($orderId);
-            $quantity = 0;
-            foreach ($order->products as $product) {
-                $quantity += $product->pivot->count;
-            }
-        }
 
         if (is_null($orderId)) {
             return redirect()->route('index');
@@ -53,18 +44,39 @@ class BasketController extends Controller
 
         $order = Order::find($orderId);
 
+        if (is_null($order)) {
+            return redirect()->route('index');
+        }
+
+        $quantity = null;
+        foreach ($order->products as $product) {
+            $quantity += $product->pivot->count;
+        }
+
         return view('order', compact('categories', 'quantity', 'order'));
     }
 
-    public function orderConfirm()
+    public function orderConfirm(Request $request)
     {
+        $orderId = session('orderId');
+
+        if (is_null($orderId)) {
+            return redirect()->route('index');
+        }
+
+        $order = Order::find($orderId);
+
+        if (is_null($order)) {
+            return redirect()->route('index');
+        }
+
+        $orderResult = $order->saveOrder($request->name, $request->phone);
+
         return redirect()->route('index');
     }
 
     public function basketAdd($productId)
     {
-        $categories = Category::get();
-
         $orderId = session('orderId');
 
         if (is_null($orderId)) {
@@ -93,8 +105,6 @@ class BasketController extends Controller
 
     public function basketRemove($productId)
     {
-        $categories = Category::get();
-
         $orderId = session('orderId');
 
         if (is_null($orderId)) {

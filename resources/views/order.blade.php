@@ -17,15 +17,15 @@
             </p>
 
             <form method="POST" action="">
-                <!-- Email input -->
+                <!-- Name input -->
                 <div class="form-outline mb-4">
-                    <input type="text" id="form1Example1" class="form-control" />
+                    <input type="text" name="name" id="name" class="form-control" />
                     <label class="form-label" for="form1Example1">Имя</label>
                 </div>
 
-                <!-- Password input -->
+                <!-- Phone input -->
                 <div class="form-outline mb-4">
-                    <input type="tel" id="form1Example2" class="form-control" />
+                    <input type="text" name="phone" id="phone" class="form-control" />
                     <label class="form-label" for="form1Example2">Телефон</label>
                 </div>
 
