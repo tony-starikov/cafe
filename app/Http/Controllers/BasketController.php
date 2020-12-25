@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Order;
+use App\Product;
 use Illuminate\Http\Request;
 
 class BasketController extends Controller
@@ -106,6 +107,10 @@ class BasketController extends Controller
             $order->products()->attach($productId);
         }
 
+        $product = Product::find($productId);
+
+        session()->flash('message', $product->name . ' добавлен в корзину!');
+
         return redirect()->route('basket');
     }
 
@@ -136,6 +141,10 @@ class BasketController extends Controller
                 $pivotRow->update();
             }
         }
+
+        $product = Product::find($productId);
+
+        session()->flash('message', $product->name . ' удалён из корзины!');
 
         return redirect()->route('basket');
     }
