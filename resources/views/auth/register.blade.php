@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('auth.layouts.master')
 
 @section('title', 'Регистрация')
 
@@ -12,13 +12,13 @@
                 <!-- Name input -->
                 <div class="form-outline mb-4">
                     <input type="text" name="name" id="name" class="form-control" />
-                    <label class="form-label" for="form1Example1">Имя</label>
+                    <label class="form-label" for="name">Имя</label>
                 </div>
 
-                <!-- Phone input -->
+                <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="text" name="phone" id="phone" class="form-control" />
-                    <label class="form-label" for="phone">Телефон</label>
+                    <input id="email" type="email" class="form-control" name="email" value="" required />
+                    <label class="form-label" for="email">Email</label>
                 </div>
 
                 <!-- Password input -->

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('auth.layouts.master')
 
 @section('title', 'Логин')
 
@@ -8,11 +8,11 @@
 
             <h3>Авторизация</h3>
 
-            <form method="POST" action="">
-                <!-- Phone input -->
+            <form method="POST" action="{{ route('login') }}">
+                <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="text" name="phone" id="phone" class="form-control" />
-                    <label class="form-label" for="phone">Телефон</label>
+                    <input id="email" type="email" class="form-control" name="email" value="" required />
+                    <label class="form-label" for="email">Email</label>
                 </div>
 
                 <!-- Password input -->

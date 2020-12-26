@@ -21,6 +21,8 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('getLogout');
 
 Route::get('/', 'MainController@index')->name('index');
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/basket', 'BasketController@basket')->name('basket');
 
 Route::post('/basket/add/{product_id}', 'BasketController@basketAdd')->name('basketAdd');
