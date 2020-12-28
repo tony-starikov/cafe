@@ -1,20 +1,20 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Создать категорию')
+@section('title', 'Добавить категорию')
 
 @section('content')
     <div class="col-md-12">
-        <h1>Добавить Категорию</h1>
+        <h1>Добавить категорию</h1>
 
-{{--        @if ($errors->any())--}}
-{{--            <div class="alert alert-danger">--}}
-{{--                <ul>--}}
-{{--                    @foreach ($errors->all() as $error)--}}
-{{--                        <li>{{ $error }}</li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        @endif--}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <form method="POST" enctype="multipart/form-data"
               action="{{ route('categories.store') }}">
@@ -24,7 +24,7 @@
                     <label for="code" class="col-sm-2 col-form-label">Код: </label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="code" id="code"
-                               value="">
+                               value="{{ old('code') }}">
                     </div>
                 </div>
                 <br>
@@ -32,7 +32,7 @@
                     <label for="name" class="col-sm-2 col-form-label">Название: </label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" name="name" id="name"
-                               value="">
+                               value="{{ old('name') }}">
                     </div>
                 </div>
                 <br>
@@ -40,7 +40,7 @@
                     <label for="description" class="col-sm-2 col-form-label">Описание: </label>
                     <div class="col-sm-6">
 							<textarea name="description" id="description" cols="72"
-                                      rows="7"></textarea>
+                                      rows="7">{{ old('description') }}</textarea>
                     </div>
                 </div>
                 <br>
