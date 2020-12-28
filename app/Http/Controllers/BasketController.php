@@ -6,6 +6,7 @@ use App\Category;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BasketController extends Controller
 {
@@ -15,23 +16,11 @@ class BasketController extends Controller
 
         $orderId = session('orderId');
 
-        if (is_null($orderId)) {
-            $order = Order::create()->id;
-            session(['orderId' => $order]);
-            return redirect()->route('index');
-        }
-
         $order = Order::find($orderId);
 
         if (is_null($order)) {
             $orderId = Order::create()->id;
             session(['orderId' => $orderId]);
-            $order = Order::find($orderId);
-            return redirect()->route('index');
-        }
-
-        if ($order->products->count() < 1) {
-            session()->flash('message', 'Корзина пуста, добавьте товары!');
             return redirect()->route('index');
         }
 
@@ -97,16 +86,15 @@ class BasketController extends Controller
         $orderId = session('orderId');
 
         if (is_null($orderId)) {
-            $order = Order::create()->id;
-            session(['orderId' => $order]);
+            $order = Order::create();
+            session(['orderId' => $order->id]);
+        } else {
+            $order = Order::find($orderId);
         }
 
-        $order = Order::find($orderId);
-
         if (is_null($order)) {
-            $orderId = Order::create()->id;
-            session(['orderId' => $orderId]);
-            $order = Order::find($orderId);
+            $order = Order::create();
+            session(['orderId' => $order->id]);
         }
 
         if ($order->products->contains($productId)) {
@@ -116,6 +104,11 @@ class BasketController extends Controller
 //            dd($pivotRow);
         } else {
             $order->products()->attach($productId);
+        }
+
+        if (Auth::check()) {
+            $order->user_id = Auth::id();
+            $order->save();
         }
 
         $product = Product::find($productId);
