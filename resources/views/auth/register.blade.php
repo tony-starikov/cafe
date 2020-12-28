@@ -15,6 +15,12 @@
                     <label class="form-label" for="name">Имя</label>
                 </div>
 
+                <!-- Phone input -->
+                <div class="form-outline mb-4">
+                    <input type="text" name="phone" id="phone" class="form-control" required/>
+                    <label class="form-label" for="phone">Телефон</label>
+                </div>
+
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <input id="email" type="email" class="form-control" name="email" value="" required />

@@ -9,10 +9,10 @@
             <h3>Авторизация</h3>
 
             <form method="POST" action="{{ route('login') }}">
-                <!-- Email input -->
+                <!-- Phone input -->
                 <div class="form-outline mb-4">
-                    <input id="email" type="email" class="form-control" name="email" value="" required />
-                    <label class="form-label" for="email">Email</label>
+                    <input id="phone" type="text" class="form-control" name="phone" required />
+                    <label class="form-label" for="phone">Телефон</label>
                 </div>
 
                 <!-- Password input -->
@@ -24,7 +24,7 @@
             @csrf
 
             <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block">Заказать</button>
+                <button type="submit" class="btn btn-primary btn-block">Войти</button>
             </form>
         </div>
     </div>
