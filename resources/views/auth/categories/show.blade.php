@@ -1,10 +1,10 @@
 @extends('auth.layouts.master')
 
-@section('title', $category->name)
+@section('title', 'Категория: ' . $category->name)
 
 @section('content')
     <div class="col-md-12">
-        <h1>{{ $category->name }}</h1>
+        <h5>Категория: {{ $category->name }}</h5>
         <table class="table">
             <tbody>
             <tr>
@@ -34,7 +34,7 @@
             <tr>
                 <td>Картинка</td>
                 <td>
-{{--                    <img src="{{ Storage::url($category->image) }}" height="240px">--}}
+                    <img src="{{ Storage::url($category->image) }}" height="240px">
                 </td>
             </tr>
             <tr>

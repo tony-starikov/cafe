@@ -1,10 +1,10 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Редактировать ' . $category->name)
+@section('title', 'Редактировать категорию' . $category->name)
 
 @section('content')
     <div class="col-md-12">
-        <h1>Редактировать категорию {{ $category->name }}</h1>
+        <h5>Редактировать категорию {{ $category->name }}</h5>
 
         {{--        @if ($errors->any())--}}
         {{--            <div class="alert alert-danger">--}}

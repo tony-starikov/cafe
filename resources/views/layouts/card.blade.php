@@ -2,8 +2,10 @@
     <div class="card h-100">
         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
             <img
-                src="/img/1.png"
-                class="img-fluid"
+                alt="product_image"
+                src="{{ Storage::url($product->image) }}"
+                class="img"
+                height="240px"
             />
             <a href="#!">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
