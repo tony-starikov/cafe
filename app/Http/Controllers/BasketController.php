@@ -14,20 +14,30 @@ class BasketController extends Controller
         $categories = Category::get();
 
         $orderId = session('orderId');
+
         if (is_null($orderId)) {
             $order = Order::create()->id;
             session(['orderId' => $order]);
             return redirect()->route('index');
-        } else {
-            $order = Order::findOrFail($orderId);
-            $quantity = 0;
-            foreach ($order->products as $product) {
-                $quantity += $product->pivot->count;
-            }
+        }
+
+        $order = Order::find($orderId);
+
+        if (is_null($order)) {
+            $orderId = Order::create()->id;
+            session(['orderId' => $orderId]);
+            $order = Order::find($orderId);
+            return redirect()->route('index');
         }
 
         if ($order->products->count() < 1) {
+            session()->flash('message', 'Корзина пуста, добавьте товары!');
             return redirect()->route('index');
+        }
+
+        $quantity = null;
+        foreach ($order->products as $product) {
+            $quantity += $product->pivot->count;
         }
 
         return view('basket', compact('categories', 'order', 'quantity'));
@@ -89,13 +99,14 @@ class BasketController extends Controller
         if (is_null($orderId)) {
             $order = Order::create()->id;
             session(['orderId' => $order]);
-        } else {
-            $order = Order::find($orderId);
         }
 
-        if (!is_object($order)){
-            $order = Order::create()->id;
-            session(['orderId' => $order]);
+        $order = Order::find($orderId);
+
+        if (is_null($order)) {
+            $orderId = Order::create()->id;
+            session(['orderId' => $orderId]);
+            $order = Order::find($orderId);
         }
 
         if ($order->products->contains($productId)) {
