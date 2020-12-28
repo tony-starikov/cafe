@@ -57,6 +57,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">ЗАКАЗЫ</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('categories.index') }}">КАТЕГОРИИ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">ТОВАРЫ</a>
+                    </li>
                 </ul>
                 <!-- Left links -->
 
