@@ -54,6 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('index') }}">ГЛАВНАЯ</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('home') }}">ЗАКАЗЫ</a>
+                    </li>
                 </ul>
                 <!-- Left links -->
 
@@ -96,12 +99,9 @@
                             <i class="fas fa-user"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="{{ route('login') }}">ВОЙТИ</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}">РЕГИСТРАЦИЯ</a></li>
                             @auth()
                                 <li><a class="dropdown-item" href="{{ route('getLogout') }}">ВЫЙТИ</a></li>
                             @endauth
-
                         </ul>
                     </li>
                 </ul>
@@ -121,78 +121,6 @@
         @yield('content')
     </div>
 </main>
-
-<!-- Footer -->
-<footer class="bg-light text-center text-lg-start">
-    <!-- Grid container -->
-    <div class="container mb-3">
-        <hr>
-        <!--Grid row-->
-        <div class="row">
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">FAMILY CAFE</h5>
-
-                <p>
-                    Доставка еды на дом – удобный и комфортный способ организации легкого перекуса или сытного обеда, вкусного завтрака или романтического ужина.
-                </p>
-
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="#!" class="text-dark">Меню доставки</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Рестораны</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Меню ресторана</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Бизнес ланчи</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Новости</a>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
-
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!" class="text-dark">Бонусная программа</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Организация праздников</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Вакансии</a>
-                    </li>
-                </ul>
-            </div>
-            <!--Grid column-->
-        </div>
-        <!--Grid row-->
-    </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2020 Copyright:
-        <a class="text-dark" href="#!">FAMILY CAFE</a>
-    </div>
-    <!-- Copyright -->
-</footer>
-<!-- Footer -->
-</body>
 
 <!-- MDB -->
 <script type="text/javascript" src="/js/mdb.min.js"></script>

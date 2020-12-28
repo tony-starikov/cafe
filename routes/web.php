@@ -17,11 +17,18 @@ Auth::routes([
     'verify' => false,
 ]);
 
+Route::group([
+    'middleware' => 'auth',
+    'namespace' => 'Admin',
+], function () {
+    Route::get('/orders', 'OrderController@index')->name('home');
+});
+
+//Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+
 Route::get('/logout', 'Auth\LoginController@logout')->name('getLogout');
 
 Route::get('/', 'MainController@index')->name('index');
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/basket', 'BasketController@basket')->name('basket');
 

@@ -127,7 +127,7 @@
                             @endguest
 
                             @auth()
-                                <li><a class="dropdown-item" href="{{ route('home') }}">ADMIN</a></li>
+                                <li><a class="dropdown-item" href="{{ route('home') }}">КАБИНЕТ</a></li>
                                 <li><a class="dropdown-item" href="{{ route('getLogout') }}">ВЫЙТИ</a></li>
                             @endauth
 
