@@ -38,10 +38,6 @@ class BasketController extends Controller
 
         $orderId = session('orderId');
 
-        if (is_null($orderId)) {
-            return redirect()->route('index');
-        }
-
         $order = Order::find($orderId);
 
         if (is_null($order)) {
@@ -59,10 +55,6 @@ class BasketController extends Controller
     public function orderConfirm(Request $request)
     {
         $orderId = session('orderId');
-
-        if (is_null($orderId)) {
-            return redirect()->route('index');
-        }
 
         $order = Order::find($orderId);
 
@@ -122,15 +114,7 @@ class BasketController extends Controller
     {
         $orderId = session('orderId');
 
-        if (is_null($orderId)) {
-            $order = Order::create()->id;
-            session(['orderId' => $order]);
-            return redirect()->route('index');
-        }
-
         $order = Order::find($orderId);
-
-
 
         if (is_null($order->products)) {
             return redirect()->route('index');
