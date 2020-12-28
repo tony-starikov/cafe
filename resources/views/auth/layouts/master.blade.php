@@ -61,7 +61,7 @@
                         <a class="nav-link" href="{{ route('categories.index') }}">КАТЕГОРИИ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">ТОВАРЫ</a>
+                        <a class="nav-link" href="{{ route('products.index') }}">ТОВАРЫ</a>
                     </li>
                 </ul>
                 <!-- Left links -->
