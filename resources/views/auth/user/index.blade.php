@@ -36,7 +36,7 @@
                     <td>{{ $order->getFullPrice() }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a class="btn btn-success" type="button" href="{{ route('ordersShow', $order) }}">Открыть</a>
+                            <a class="btn btn-success" type="button" href="{{ route('userOrdersShow', $order) }}">Открыть</a>
                         </div>
                     </td>
                 </tr>

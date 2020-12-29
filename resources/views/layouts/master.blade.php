@@ -126,8 +126,13 @@
                                 <li><a class="dropdown-item" href="{{ route('register') }}">РЕГИСТРАЦИЯ</a></li>
                             @endguest
 
-                            @auth()
-                                <li><a class="dropdown-item" href="{{ route('home') }}">КАБИНЕТ</a></li>
+                            @auth
+                                @if(Auth::user()->isAdmin())
+                                    <li><a class="dropdown-item" href="{{ route('home') }}">АДМИНИСТРАТОР</a></li>
+                                @else
+                                    <li><a class="dropdown-item" href="{{ route('userOrdersIndex') }}">ЗАКАЗЫ</a></li>
+                                @endif
+
                                 <li><a class="dropdown-item" href="{{ route('getLogout') }}">ВЫЙТИ</a></li>
                             @endauth
 
