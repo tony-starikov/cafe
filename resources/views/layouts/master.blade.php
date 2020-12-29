@@ -149,7 +149,7 @@
 <main class="mt-3">
     <div class="container text-body">
         @if(session()->has('message'))
-            <p class="alert alert-success text-center">{{ session()->get('message') }}</p>
+            <p class="alert alert-success text-center text-uppercase">{{ session()->get('message') }}</p>
         @endif
 
         @yield('content')
