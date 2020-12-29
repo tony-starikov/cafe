@@ -11,7 +11,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        $products = Product::paginate(12);
+        $products = Product::paginate(9);
         $categories = Category::get();
 
         $quantity = null;
