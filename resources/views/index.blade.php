@@ -15,7 +15,7 @@
         <div class="mask" style="background-color: rgba(0,0,0,0.31)">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-white">
-                    <h1 class="mb-3">Теперь мы <strong>online!</strong></h1>
+                    <h2 class="mb-3">Теперь мы <strong>online!</strong></h2>
                     <h4 class="mb-3">Заказывай на сайте - забирай в кафе без <strong>очереди!</strong></h4>
                     <!-- <a class="btn btn-outline-light btn-lg" href="#!" role="button"
                       >Call to action</a
@@ -52,14 +52,13 @@
             <!-- Left links -->
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ВСЕ КАТЕГОРИИ</a>
+                    <a class="nav-link" href="{{ route('index') }}">ВСЕ КАТЕГОРИИ</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ДЕСЕРТЫ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">НАПИТКИ</a>
-                </li>
+                @foreach($categories as $category)
+                    <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="{{ route('category', $category->code) }}">{{ $category->name }}</a>
+                    </li>
+                @endforeach
             </ul>
             <!-- Left links -->
         </div>
@@ -84,21 +83,7 @@
 <!-- Pagination -->
 <div class="container">
     <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
-        <ul class="pagination pagination-lg">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
+        {{ $products->links() }}
     </nav>
 </div>
 <!-- Pagination -->

@@ -11,7 +11,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        $products = Product::get();
+        $products = Product::paginate(12);
         $categories = Category::get();
 
         $quantity = null;
@@ -33,6 +33,8 @@ class MainController extends Controller
 
         $category = $categories->where('code', $code)->first();
 
+        $products = $category->products()->paginate(9);
+
         $quantity = null;
         $orderId = session('orderId');
         if (!is_null($orderId)) {
@@ -43,7 +45,7 @@ class MainController extends Controller
             }
         }
 
-        return view('category', compact('category', 'categories', 'quantity'));
+        return view('category', compact('category', 'categories', 'quantity', 'products'));
     }
 
     public function product($category, $product)

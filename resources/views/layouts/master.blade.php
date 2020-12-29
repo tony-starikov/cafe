@@ -71,7 +71,7 @@
                         <!-- Dropdown menu -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach($categories as $category)
-                                <li><a class="dropdown-item" href="{{ route('category', $category->code) }}">{{ $category->name }}</a></li>
+                                <li><a class="dropdown-item text-uppercase" href="{{ route('category', $category->code) }}">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -219,10 +219,10 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2020 Copyright:
-        <a class="text-dark" href="#!">FAMILY CAFE</a>
-    </div>
+{{--    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">--}}
+{{--        © 2020 Copyright:--}}
+{{--        <a class="text-dark" href="#!">FAMILY CAFE</a>--}}
+{{--    </div>--}}
     <!-- Copyright -->
 </footer>
 <!-- Footer -->

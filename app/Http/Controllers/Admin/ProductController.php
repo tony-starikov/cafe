@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::get();
-        $products = Product::get();
+        $products = Product::paginate(20);
         return  view('auth.products.index', compact('products', 'categories'));
     }
 
