@@ -20,13 +20,12 @@ class NotEmptyBasket
 
         if (!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
-            if ($order->products->count() < 1) {
-                session()->flash('message', 'Корзина пуста, добавьте товары!');
-                return redirect()->route('index');
+            if ($order->products->count() > 0) {
+                return $next($request);
             }
-
         }
 
-        return $next($request);
+        session()->flash('message', 'Корзина пуста, добавьте товары!');
+        return redirect()->route('index');
     }
 }
