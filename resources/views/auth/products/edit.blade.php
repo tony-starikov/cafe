@@ -75,14 +75,16 @@
                                value="{{ $product->price }}">
                     </div>
                 </div>
-                {{--                    <div class="input-group row">--}}
-                {{--                        <label for="code" class="col-sm-2 col-form-label">{{ $title }}: </label>--}}
-                {{--                        <div class="col-sm-6">--}}
-                {{--                            <input type="checkbox" class="form-control" name="{{ $field }}" id="{{ $field }}"--}}
-                {{--                                   @if(isset($product) && $product->$field == 1)checked="checked"@endif>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                    <br>--}}
+
+                @foreach(['new' => 'Новинка', 'sale' => 'Скидка'] as $field => $title)
+                    <div class="input-group row">
+                        <label for="{{ $field }}" class="form-check-label col-sm-2 col-form-label">{{ $title }}: </label>
+                        <div class="col-sm-6">
+                            <input type="checkbox" class="form-check-input" name="{{ $field }}" id="{{ $field }}" @if($product->$field == 1) checked @endif>
+                        </div>
+                    </div>
+                    <br>
+                @endforeach
 
                 <button class="btn btn-success">Сохранить</button>
             </div>

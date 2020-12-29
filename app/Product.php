@@ -11,7 +11,7 @@ class Product extends Model
 //        return Category::find($this->category_id);
 //    }
 
-    protected $fillable = ['category_id', 'name', 'code', 'description', 'image', 'price'];
+    protected $fillable = ['category_id', 'name', 'code', 'description', 'image', 'price', 'new', 'sale'];
 
     public function category()
     {
@@ -24,5 +24,25 @@ class Product extends Model
             return $this->price;
         }
         return $this->pivot->count * $this->price;
+    }
+
+    public function setNewAttribute($value)
+    {
+        $this->attributes['new'] = $value === 'on' ? 1 : 0;
+    }
+
+    public function setSaleAttribute($value)
+    {
+        $this->attributes['sale'] = $value === 'on' ? 1 : 0;
+    }
+
+    public function isNew()
+    {
+        return $this->new === 1;
+    }
+
+    public function isSale()
+    {
+        return $this->sale === 1;
     }
 }

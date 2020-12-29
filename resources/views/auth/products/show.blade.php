@@ -44,16 +44,12 @@
             <tr>
                 <td>Labels</td>
                 <td>
-                    <h5>Labels</h5>
-{{--                    @if($product->isNew())--}}
-{{--                        <h5>New</h5>--}}
-{{--                    @endif--}}
-{{--                    @if($product->isHit())--}}
-{{--                        <h5>Hit</h5>--}}
-{{--                    @endif--}}
-{{--                    @if($product->isRecommend())--}}
-{{--                        <h5>Recommend</h5>--}}
-{{--                    @endif--}}
+                    @if($product->isNew())
+                        <span class="badge bg-success">NEW</span>
+                    @endif
+                    @if($product->isSale())
+                            <span class="badge bg-danger">SALE</span>
+                    @endif
                 </td>
             </tr>
             </tbody>

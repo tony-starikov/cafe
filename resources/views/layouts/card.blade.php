@@ -14,7 +14,8 @@
         <div class="card-body">
             <h5 class="card-title">
                 <a href="{{ route('product', [$product->category->code, $product->code]) }}" class="text-body">{{ $product->name }}
-                    <span class="badge bg-success">NEW</span>
+                    @if($product->isNew())<span class="badge bg-success">NEW</span>@endif
+                    @if($product->isSale())<span class="badge bg-danger">SALE</span>@endif
                 </a>
             </h5>
             <h6>{{ $product->price }} UAH</h6>
