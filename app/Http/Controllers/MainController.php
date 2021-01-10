@@ -27,6 +27,76 @@ class MainController extends Controller
         return view('index', compact('categories', 'products', 'quantity'));
     }
 
+    public function new()
+    {
+        $products = Product::where('new', 1)->paginate(9);
+        $categories = Category::get();
+
+        $quantity = null;
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            $quantity = null;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
+
+        return view('new', compact('categories', 'products', 'quantity'));
+    }
+
+    public function sale()
+    {
+        $products = Product::with('category')->where('sale', 1)->paginate(9);
+        $categories = Category::get();
+
+        $quantity = null;
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            $quantity = null;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
+
+        return view('sale', compact('categories', 'products', 'quantity'));
+    }
+
+    public function delivery()
+    {
+        $categories = Category::get();
+
+        $quantity = null;
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            $quantity = null;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
+
+        return view('delivery', compact('categories', 'quantity'));
+    }
+
+    public function about()
+    {
+        $categories = Category::get();
+
+        $quantity = null;
+        $orderId = session('orderId');
+        if (!is_null($orderId)) {
+            $order = Order::findOrFail($orderId);
+            $quantity = null;
+            foreach ($order->products as $product) {
+                $quantity += $product->pivot->count;
+            }
+        }
+
+        return view('about', compact('categories', 'quantity'));
+    }
+
     public function category($code)
     {
         $categories = Category::get();
@@ -68,4 +138,5 @@ class MainController extends Controller
 
         return view('product', compact('categories', 'product', 'category', 'quantity'));
     }
+
 }

@@ -74,6 +74,14 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('getLogout');
 
 Route::get('/', 'MainController@index')->name('index');
 
+Route::get('/new', 'MainController@new')->name('new');
+
+Route::get('/sale', 'MainController@sale')->name('sale');
+
+Route::get('/delivery', 'MainController@delivery')->name('delivery');
+
+Route::get('/about', 'MainController@about')->name('about');
+
 Route::get('/{category}/{product}', 'MainController@product')->name('product');
 
 Route::get('/{category}', 'MainController@category')->name('category');

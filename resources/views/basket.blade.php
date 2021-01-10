@@ -23,12 +23,12 @@
                         </a>
                     </td>
                     <td>
-                        <div class="d-inline-block">
-                            <button class="btn btn-primary btn-sm">{{ $product->pivot->count }}</button>
+                        <div class="btn-group-vertical">
                             <form action="{{ route('basketAdd', $product->id) }}" method="POST">
                                 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i></button>
                                 @csrf
                             </form>
+                            <button class="btn btn-primary btn-sm">{{ $product->pivot->count }}</button>
                             <form action="{{ route('basketRemove', $product->id) }}" method="POST">
                                 <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-minus"></i></button>
                                 @csrf

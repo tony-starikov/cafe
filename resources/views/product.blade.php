@@ -4,12 +4,12 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-6 mt-3">
+    <div class="col-md-6 py-2">
         <img src="{{ Storage::url($product->image) }}" alt="product_image" class="img-fluid">
     </div>
-    <div class="col-md-6 mt-3">
+    <div class="col-md-6 py-2">
         <div class="p-4">
-            <div class="mb-3">
+            <div class="py-2">
                 <a href="#">
                     <span class="badge bg-secondary mr-1 text-uppercase">{{ $category->name }}</span>
                 </a>
@@ -43,6 +43,4 @@
         </div>
     </div>
 </div>
-
-<hr>
 @endsection

@@ -15,7 +15,7 @@
         <div class="mask" style="background-color: rgba(0,0,0,0.31)">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-white">
-                    <h1 class="mb-3"><strong>{{ $category->name }} {{ $category->products->count() }}</strong></h1>
+                    <h1 class="mb-3 text-uppercase"><strong>{{ $category->name }}: {{ $category->products->count() }}</strong></h1>
                     <h4 class="mb-3"><strong>{{ $category->description }}</strong></h4>
                 </div>
             </div>
@@ -23,6 +23,10 @@
     </div>
 </div>
 <!-- Background image -->
+
+<!-- Navbar -->
+@include('layouts.navbar')
+<!-- Navbar -->
 
 <!-- Products -->
 <section class="text-center mt-3">

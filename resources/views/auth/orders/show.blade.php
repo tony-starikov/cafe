@@ -13,29 +13,29 @@
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Название</th>
-                            <th>Кол-во</th>
-                            <th>Цена</th>
-                            <th>Стоимость</th>
+                            <th>НАЗВАНИЕ</th>
+                            <th>КОЛ-ВО</th>
+                            <th>ЦЕНА</th>
+                            <th>СТОИМОСТЬ</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($order->products as $product)
                             <tr>
                                 <td>
-                                    <a href="{{ route('product', [$product->category->code, $product->code]) }}">
+                                    <a class="text-uppercase" href="{{ route('product', [$product->category->code, $product->code]) }}">
                                         <img height="56px"
                                              src="{{ Storage::url($product->image) }}">
                                         {{ $product->name }}
                                     </a>
                                 </td>
-                                <td><span class="badge">1</span></td>
+                                <td><button class="btn btn-primary btn-sm">{{ $product->pivot->count }}</button></td>
                                 <td>{{ $product->price }} UAH</td>
                                 <td>{{ $product->getPriceForCount()}} UAH</td>
                             </tr>
                         @endforeach
                         <tr>
-                            <td colspan="3">Общая стоимость:</td>
+                            <td colspan="3">ОБЩАЯ СТОИМОСТЬ:</td>
                             <td>{{ $order->getFullPrice() }} UAH</td>
                         </tr>
                         </tbody>

@@ -7,7 +7,7 @@
                 class="img"
                 height="240px"
             />
-            <a href="#!">
+            <a href="{{ route('product', [$product->category->code, $product->code]) }}">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
             </a>
         </div>

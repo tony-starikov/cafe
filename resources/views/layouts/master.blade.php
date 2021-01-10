@@ -55,7 +55,7 @@
                         <a class="nav-link" href="{{ route('index') }}">ГЛАВНАЯ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ДОСТАВКА</a>
+                        <a class="nav-link" href="{{ route('delivery') }}">ДОСТАВКА</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a
@@ -76,7 +76,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">О НАС</a>
+                        <a class="nav-link" href="{{ route('about') }}">О НАС</a>
                     </li>
                 </ul>
                 <!-- Left links -->
