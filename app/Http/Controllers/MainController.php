@@ -131,8 +131,8 @@ class MainController extends Controller
         if (!is_null($orderId)) {
             $order = Order::find($orderId);
             $quantity = null;
-            foreach ($order->products as $product) {
-                $quantity += $product->pivot->count;
+            foreach ($order->products as $prod) {
+                $quantity += $prod->pivot->count;
             }
         }
 
