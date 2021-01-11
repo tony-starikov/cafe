@@ -1,6 +1,6 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Order ' . $order->id)
+@section('title', 'ЗАКАЗ ' . $order->id)
 
 @section('content')
     <div class="py-4">

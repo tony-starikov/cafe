@@ -1,6 +1,6 @@
 @extends('auth.layouts.master')
 
-@section('title', 'Order ' . $order->id)
+@section('title', 'ЗАКАЗ ' . $order->id)
 
 @section('content')
     <div class="py-4">
@@ -29,7 +29,7 @@
                                         {{ $product->name }}
                                     </a>
                                 </td>
-                                <td><span class="badge">1</span></td>
+                                <td><button class="btn btn-primary btn-sm">{{ $product->pivot->count }}</button></td>
                                 <td>{{ $product->price }} UAH</td>
                                 <td>{{ $product->getPriceForCount()}} UAH</td>
                             </tr>
