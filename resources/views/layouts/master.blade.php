@@ -87,7 +87,7 @@
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="#">
                             <span><i class="fas fa-phone"></i></span>
-                            <span class="clearfix d-none d-sm-inline-block">+380670017002</span>
+                            <span class="clearfix d-none d-sm-inline-block">+380 63 871 6962</span>
                         </a>
                     </li>
                     <li class="nav-item me-3 me-lg-0">
