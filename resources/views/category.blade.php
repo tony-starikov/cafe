@@ -29,7 +29,7 @@
 <!-- Navbar -->
 
 <!-- Products -->
-<section class="text-center mt-3">
+<section class="text-center my-4">
     <div class="container">
         <div class="row">
             @foreach($products as $product)

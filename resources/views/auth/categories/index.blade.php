@@ -9,45 +9,19 @@
         </div>
     </div>
 
+    <a class="btn btn-success" type="button" href="{{ route('categories.create') }}">ДОБАВИТЬ КАТЕГОРИЮ</a>
+
     <div class="col-md-12">
-        <table class="table">
-            <tbody>
-            <tr>
-                <th>
-                    #
-                </th>
-                <th>
-                    КОД
-                </th>
-                <th>
-                    НАЗВАНИЕ
-                </th>
-                <th>
-                    ДЕЙСТВИЯ
-                </th>
-            </tr>
-            @foreach($categories as $category)
-                <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->code }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <form action="{{ route('categories.destroy', $category) }}" method="POST">
-                                <a class="btn btn-success" type="button" href="{{ route('categories.show', $category) }}">ОТКРЫТЬ</a>
-                                <a class="btn btn-warning" type="button" href="{{ route('categories.edit', $category) }}">РЕДАКТИРОВАТЬ</a>
-                                @csrf
-                                @method('DELETE')
-                                <input class="btn btn-danger" type="submit" value="УДАЛИТЬ">
-                            </form>
-                        </div>
-                    </td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        <a class="btn btn-success" type="button" href="{{ route('categories.create') }}">ДОБАВИТЬ КАТЕГОРИЮ</a>
-        <br>
+
+        <section class="text-center my-4">
+            <div class="container">
+                <div class="row">
+                    @foreach($categories as $category)
+                        @include('auth.layouts.category-card', compact('category'))
+                    @endforeach
+                </div>
+            </div>
+        </section>
 
         <div class="container">
             <div class="row">
