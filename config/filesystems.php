@@ -43,21 +43,38 @@ return [
 
     'disks' => [
 
+//        'local' => [
+//            'driver' => 'local',
+//            'root' => storage_path('app'),
+//        ],
+//
+//        'reset' => [
+//            'driver' => 'local',
+//            'root' => base_path('resources/images'),
+//        ],
+//
+//        'public' => [
+//            'driver' => 'local',
+//            'root' => storage_path('app/public'),
+//            'url' => env('APP_URL').'/storage',
+//            'visibility' => 'public',
+//        ],
+
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => public_path('images'),
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => public_path('/images'),
+            'url' => env('APP_URL').'/images',
+            'visibility' => 'public',
         ],
 
         'reset' => [
             'driver' => 'local',
             'root' => base_path('resources/images'),
-        ],
-
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
-            'visibility' => 'public',
         ],
 
         's3' => [
